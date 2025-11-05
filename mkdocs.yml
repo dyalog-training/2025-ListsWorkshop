@@ -1,0 +1,14 @@
+site_name: Lists of Text Workshop
+theme:
+  name: material
+  favicon: documentation-assets/images/favicon-32.png
+  logo: documentation-assets/images/dyalog-logo_white.svg
+  font:
+    text: Be Vietnam Pro
+extra_css:
+  - documentation-assets/css/main.css
+  - documentation-assets/css/extra.css
+nav:
+  - About: index.md
+  - Exercises: exercises.md
+plugins: [] # disable search
