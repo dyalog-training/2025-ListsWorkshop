@@ -13,14 +13,14 @@ This workspace contains a nested list of character vectors, `words`, and a names
 
 ```
       ]map
-#                                                                                                                      
-·   ~ words                                                                                                            
-·   Tests                                                                                                              
-·   ·   ~ length_by_letter                                                                                             
-·   ·   ∇ Run Test_CountA Test_CountAlphabetical Test_CountAlternating Test_CountCON Test_CountC_T Test_CountELL       
-·   ·   ∇ Test_CountGANDS Test_CountGORS Test_CountITY Test_CountPalindromes Test_CountRepeating Test_LengthByLetter   
-·   ·   ∇ Test_LengthDistribution Test_LetterDistribution Test_LongestWords Test_RemoveInteriorVowels Test_RemoveVowels
-·   ·   ∇ Test_Reverse Test_Sandwich Test_Substrings
+#                                                                                                                  
+·   ~ version words                                                                                                
+·   Tests                                                                                                          
+·   ·   ~ length_by_letter                                                                                         
+·   ·   ∇ Run Test_CountA Test_CountAlphabetical Test_CountAlternating Test_CountCON Test_CountC_T Test_CountELL   
+·   ·   ∇ Test_CountGANDS Test_CountGORS Test_CountITY Test_CountN_Q Test_CountPalindromes Test_CountRepeating     
+·   ·   ∇ Test_LengthByLetter Test_LengthDistribution Test_LongestWords Test_RemoveInteriorVowels Test_RemoveVowels
+·   ·   ∇ Test_Reverse Test_Sandwich Test_Substrings  
 ```
 
 The `Tests.Run` function takes a namespace of solution functions as its right argument and runs the test suite using those solutions. Your solution functions must be correctly named. You may define your solutions in `#` and run the tests with `Tests.Run #`.
