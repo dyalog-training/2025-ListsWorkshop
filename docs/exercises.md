@@ -1,0 +1,165 @@
+# Exercises
+
+## Submitting Your Solutions
+1. Download the [test workspace](./index.md#test-workspace) and rename it to **list-solutions-[name].dws**
+1. You can run the `Tests.Run` function
+
+## Arguments and Results
+Unless specified otherwise, all functions take a nested list of character vectors as right argument. All words in the right argument consist solely of characters in `⎕A`.
+
+All `Count*` function should return a simple scalar numeric result.
+
+## CountA
+Create a function `CountA` that returns the count of words that contain the letter "A".
+
+## CountGORS
+Create a function `CountGORS` that returns the count of words that contain the letter "G" or the letter "S".
+
+## CountGANDS
+Create a function `CountGANDS` that returns the count of words that contain the letter "G" and the letter "S".
+
+## CountELL
+Create a function `CountELL` that returns the count of words that contain the substring "ELL".
+
+## CountCON
+Create a function `CountCON` that returns the count of words that begin with "CON".
+
+## CountITY
+Create a function `CountITY` that returns the count of words that end with "ITY".
+
+## Substring
+Create a function `Substring` that returns words from the right argument list that are substrings of the simple character vector left argument. For example, substrings of "CONSIDERATION" include "SIDE" and "RATIO".
+
+## Sandwich
+Create a function `Sandwich` that returns the count of words in its right argument that begin and end with the same character.
+
+## LongestWords
+Create a function `LongestWords` that returns a nested vector of character vectors that are the longest words in its right argument list.
+
+```
+      ]box on
+Was OFF
+      LongestWords 'JUST' 'FOR' 'THESE' 'FIVE' 'WORDS'
+┌─────┬─────┐
+│THESE│WORDS│
+└─────┴─────┘
+```
+
+## LengthDistribution
+Create a function `LengthDistribution` that returns a two-column matrix. The first column contains integers between 1 and the length of the longest word in the right argument. The second column is the count of words in the right argument that have that length.
+
+```
+      LengthDistribution 'JUST' 'FOR' 'THESE' 'FIVE' 'WORDS'
+1 0
+2 0
+3 1
+4 2
+5 2
+```
+
+## LetterDistribution
+Create a function `LetterDistribution` that returns a two-column matrix. The first column contains the unique counts of unique letters in words in the right argument list. The second column contains the count of words in the list that have that many unique letters.
+
+
+## LengthByLetter
+Create a function `LengthByLetter` that returns a two-column matrix. The first column contains the letters A to Z. The second column contains the average length of words in the right argument list that begin with that letter.
+
+```
+      LengthByLetter 'JUST' 'FOR' 'THESE' 'FIVE' 'WORDS'
+A 0
+B 0
+C 0
+D 0
+E 0
+F 2.333333333
+G 0
+H 0
+I 0
+J 2
+K 0
+L 0
+M 0
+N 0
+O 0
+P 0
+Q 0
+R 0
+S 0
+T 2.5
+U 0
+V 0
+W 2.5
+X 0
+Y 0
+Z 0
+```
+
+## CountPalindromes
+Create a function `CountPalindromes` that counts the number of words that are identical when reversed.
+
+```
+      CountPalindromes 'reed' 'deed' 'dog' 'racecar'
+2
+```
+
+## CountAlphabetical
+Create a function `CountAlphabetical` that counts how many words have their letters in alphabetical order.
+
+```
+      CountAlphabetical 'JUST' 'FOR' 'THESE' 'ABC' 'DEF' 'WORDS'
+3
+```
+
+## CountRepeating
+Create a function `CountRepeating` that counts how many words have consecutive repeated letters. For example, "deep" and "small" do but "special" does not.
+
+```
+      CountRepeating 'DEEP' 'SMALL' 'SPECIAL'
+2
+```
+
+## CountAlternating
+Create a function `CountAlternating` that counts how many words have alternating vowels and consonants. For example, "solid" has alternating vowels and consonants, but "read" has two consecutive vowels and "angle" has three consecutive consonants.
+
+```
+      CountAlternating 'SOLID' 'READ' 'ANGLE'
+1
+```
+
+## Reverse
+Create a function `Reverse` that reverses each word.
+
+```
+      Reverse 'SOLID' 'READ' 'ANGLE'
+┌─────┬────┬─────┐
+│DILOS│DAER│ELGNA│
+└─────┴────┴─────┘
+```
+
+## CountC_T
+Create a function `CountC_T` that counts the numbers of words that contain the pattern `C_T` where `_` is any single letter.
+
+```
+      CountC_T 'CALLING' 'CUTTING' 'WALK' 'CAT' 'COT'
+3
+```
+
+## RemoveVowels
+Create a function `RemoveVowels` that returns the same words as its argument but with all vowels removed.
+
+```
+      RemoveVowels 'ALPHABETTY' 'SPAGHETTI'
+┌───────┬──────┐
+│LPHBTTY│SPGHTT│
+└───────┴──────┘
+```
+
+## RemoveInteriorVowels
+Create a function `RemoveVowels` that returns the same words as its argument but with all interior vowels removed. An interior letter is a letter between, but not including, the first and last letter.
+
+```
+      RemoveInteriorVowels 'ALPHABETTY' 'SPAGHETTI'
+┌────────┬───────┐
+│ALPHBTTY│SPGHTTI│
+└────────┴───────┘
+```
