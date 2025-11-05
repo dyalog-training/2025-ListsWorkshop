@@ -7,9 +7,9 @@ Try [the exercises](./exercises.md) before the first day of the workshop.
 
 ## Test workspace
 
-Download the Dyalog workspace file [lists-of-words.dws](./lists-of-words.dws).
+Download the Dyalog workspace file [lists-of-words.dws](https://github.com/dyalog-training/2025-ListsWorkshop/raw/refs/heads/main/lists-of-words.dws).
 
-This workspace contains a nested list of character vectors, `words`, and a namespace `Tests`containing a test suite.
+This workspace contains a nested list of character vectors, `words`, and a namespace `Tests` containing a test suite.
 
 ```
       ]map
@@ -23,6 +23,8 @@ This workspace contains a nested list of character vectors, `words`, and a names
 ·   ·   ∇ Test_Reverse Test_Sandwich Test_Substrings  
 ```
 
-The `Tests.Run` function takes a namespace of solution functions as its right argument and runs the test suite using those solutions. Your solution functions must be correctly named. You may define your solutions in `#` and run the tests with `Tests.Run #`.
+The `Tests.Run` function takes a namespace of solution functions as its right argument and runs the test suite using those solutions. Your solution functions must be correctly named. You may define your solutions in `#` and run the tests with `Tests.Run #`, or in another namespace that you create.
+
+The optional left argument to `Tests.Run` is a scalar Boolean flag that indicates whether or not to pause execution in the case that a test errors or fails.
 
 All of the words are capitalised alphabetic letters with no punctuation or diacritics. The words were sourced from books in [Project Gutenberg](https://www.gutenberg.org/).
