@@ -1,46 +1,112 @@
 # Exercises
 
 ## Submitting Your Solutions
-1. Download the [test workspace](./index.md#test-workspace) and rename it to **list-solutions-[name].dws**
-1. Define functions in this workspace according to the specifications below.
+1. Get the [test workspace](./index.md#test-workspace) contents:  
+
+    ```{ .apl .copy }
+    ⍝ click to copy ─→
+    ]get -u https://github.com/dyalog-training/2025-ListsWorkshop/raw/refs/heads/main/lists-of-words.dws
+    ```
+
+1. Set your workspace ID to **list-solutions-[your name].dws** and save the workspace on your system with `)SAVE`.
 1. Save your workspace often!
+1. Define functions in this workspace according to the specifications below.
+1. When you are ready to submit, erase the `words` variable so that your workspace is smaller:  
+
+    ```{ .apl .copy }
+    ]expunge words
+    ```
+
+    You can get the words variable at any time from the original workspace:  
+
+    ```{ .apl .copy }
+    ]get -u -o=words https://github.com/dyalog-training/2025-ListsWorkshop/raw/refs/heads/main/lists-of-words.dws
+    ```
+    
 1. Send your workspace to the email address you were given.
 
 ## Arguments and Results
 Unless specified otherwise, all functions take a nested list of character vectors as right argument. All words in the right argument consist solely of characters in `⎕A`.
 
-All `Count*` function should return a simple scalar numeric result.
+All `Count*` functions should return a simple scalar numeric result.
+
+## Running Tests
+The `Tests.Run` function takes a namespace of solution functions as its right argument and runs the test suite using those solutions. Your solution functions must be correctly named. You may define your solutions in `#` and run the tests with `Tests.Run #`, or using another namespace that you create.
+
+The optional left argument to `Tests.Run` is a scalar Boolean flag that indicates whether or not to pause execution in the case that a test errors or fails.
 
 ## CountA
 Define a function `CountA` that returns the count of words that contain the letter "A".
 
+```
+      CountA 'A' 'WORD' 'AT' 'A' 'TIME'
+3
+```
+
 ## CountGORS
 Define a function `CountGORS` that returns the count of words that contain the letter "G" or the letter "S".
+
+```
+      CountGORS ,¨'G' 'S' 'GS'
+3
+```
 
 ## CountGANDS
 Define a function `CountGANDS` that returns the count of words that contain the letter "G" and the letter "S".
 
+```
+      CountGANDS ,¨'G' 'S' 'GS'
+1
+```
+
 ## CountELL
 Define a function `CountELL` that returns the count of words that contain the substring "ELL".
+
+```
+      CountELL 'ELLA' 'BALL' 'BEND' 'BELL' 'BELLY'
+3
+```
 
 ## CountCON
 Define a function `CountCON` that returns the count of words that begin with "CON".
 
+```
+      CountCON 'CONNOR' 'BACON' 'ANACONDA' 'CONVERT'
+2
+```
+
 ## CountITY
 Define a function `CountITY` that returns the count of words that end with "ITY".
 
-## Substring
-Define a function `Substring` that returns words from the right argument list that are substrings of the simple character vector left argument. For example, substrings of "CONSIDERATION" include "SIDE" and "RATIO".
+```
+      CountITY 'CITY' 'PITYING' 'TEST' 'ABILITY' 'DEITY'
+3
+```
 
-## Sandwich
-Define a function `Sandwich` that returns the count of words in its right argument that begin and end with the same character.
+## CountSandwich
+Define a function `CountSandwich` that returns the count of words in its right argument that begin and end with the same character.
+
+```
+      CountSandwich 'FIFE' 'PEEP' 'TOOT'
+2
+```
+
+## Substrings
+Define a function `Substrings` that returns words from the right argument list that are substrings of the simple character vector left argument. For example, substrings of "CONSIDERATION" include "SIDE" and "RATIO".
+
+```
+      ]box on
+Was OFF
+      'CONSIDERATION' Substrings 'SIDE' 'RAT' 'RATIO' 'HAT' 'PATIO'
+┌────┬───┬─────┐
+│SIDE│RAT│RATIO│
+└────┴───┴─────┘
+```
 
 ## LongestWords
 Define a function `LongestWords` that returns a nested vector of character vectors that are the longest words in its right argument list.
 
 ```
-      ]box on
-Was OFF
       LongestWords 'JUST' 'FOR' 'THESE' 'FIVE' 'WORDS'
 ┌─────┬─────┐
 │THESE│WORDS│
@@ -96,7 +162,7 @@ Z 0
 Define a function `CountPalindromes` that counts the number of words that are identical when reversed.
 
 ```
-      CountPalindromes 'reed' 'deed' 'dog' 'racecar'
+      CountPalindromes 'REED' 'DEED' 'DOG' 'RACECAR'
 2
 ```
 
@@ -104,7 +170,7 @@ Define a function `CountPalindromes` that counts the number of words that are id
 Define a function `CountAlphabetical` that counts how many words have their letters in alphabetical order.
 
 ```
-      CountAlphabetical 'JUST' 'FOR' 'THESE' 'ABC' 'DEF' 'WORDS'
+      CountAlphabetical 'FEEL' 'ACER' 'SPOON' 'LOOPS' 'CENT'
 3
 ```
 
@@ -112,12 +178,12 @@ Define a function `CountAlphabetical` that counts how many words have their lett
 Define a function `CountRepeating` that counts how many words have consecutive repeated letters. For example, "deep" and "small" do but "special" does not.
 
 ```
-      CountRepeating 'DEEP' 'SMALL' 'SPECIAL'
+      CountRepeating 'DEEP' 'SMALL' 'SPECIAL' 'BOB'
 2
 ```
 
 ## CountAlternating
-Define a function `CountAlternating` that counts how many words have alternating vowels and consonants. For example, "solid" has alternating vowels and consonants, but "read" has two consecutive vowels and "angle" has three consecutive consonants.
+Define a function `CountAlternating` that counts how many words have alternating vowels and consonants. For example, "solid" has alternating vowels and consonants, but "read" has two consecutive vowels and "angle" has three consecutive consonants. For this workshop, a vowel is defined as one of the characters "AEIOU".
 
 ```
       CountAlternating 'SOLID' 'READ' 'ANGLE'
@@ -144,6 +210,11 @@ Define a function `CountC_T` that counts the number of words that contain the pa
 
 ## CountN_Q
 Define a function `CountN_Q` that counts the number of words that contain the pattern `N_Q` where `_` may be zero or more characters.
+
+```
+      CountN_Q 'ANTIQUE' 'QUININE'  'INEQUALITY' 'BANQUET' 'FISH'
+3
+```
 
 ## RemoveVowels
 Define a function `RemoveVowels` that returns the same words as its argument but with all vowels removed.

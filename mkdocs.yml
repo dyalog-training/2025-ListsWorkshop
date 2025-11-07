@@ -12,3 +12,8 @@ nav:
   - About: index.md
   - Exercises: exercises.md
 plugins: [] # disable search
+markdown_extensions:
+  - admonition
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
