@@ -244,6 +244,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#counta" class="md-nav__link">
     <span class="md-ellipsis">
       CountA
@@ -298,18 +307,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#substring" class="md-nav__link">
+  <a href="#countsandwich" class="md-nav__link">
     <span class="md-ellipsis">
-      Substring
+      CountSandwich
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sandwich" class="md-nav__link">
+  <a href="#substrings" class="md-nav__link">
     <span class="md-ellipsis">
-      Sandwich
+      Substrings
     </span>
   </a>
   
@@ -476,6 +485,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#counta" class="md-nav__link">
     <span class="md-ellipsis">
       CountA
@@ -530,18 +548,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#substring" class="md-nav__link">
+  <a href="#countsandwich" class="md-nav__link">
     <span class="md-ellipsis">
-      Substring
+      CountSandwich
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sandwich" class="md-nav__link">
+  <a href="#substrings" class="md-nav__link">
     <span class="md-ellipsis">
-      Sandwich
+      Substrings
     </span>
   </a>
   
@@ -674,51 +692,98 @@
 <h1 id="exercises">Exercises</h1>
 <h2 id="submitting-your-solutions">Submitting Your Solutions</h2>
 <ol>
-<li>Download the <a href="../#test-workspace">test workspace</a> and rename it to <strong>list-solutions-[name].dws</strong></li>
-<li>Define functions in this workspace according to the specifications below.</li>
+<li>
+<p>Get the <a href="../#test-workspace">test workspace</a> contents:  </p>
+<div class="copy highlight"><pre><span></span><code><span class="c1">⍝ click to copy ─→</span>
+<span class="sr">]</span><span class="nv">get</span><span class="w"> </span><span class="o">-</span><span class="nv">u</span><span class="w"> </span><span class="nv">https</span><span class="bp">:</span><span class="na">//</span><span class="nv">github</span><span class="na">.</span><span class="nv">com</span><span class="na">/</span><span class="nv">dyalog</span><span class="o">-</span><span class="nv">training</span><span class="na">/</span><span class="m">2025</span><span class="o">-</span><span class="nv">ListsWorkshop</span><span class="na">/</span><span class="nv">raw</span><span class="na">/</span><span class="nv">refs</span><span class="na">/</span><span class="nv">heads</span><span class="na">/</span><span class="nv">main</span><span class="na">/</span><span class="nv">lists</span><span class="o">-</span><span class="nv">of</span><span class="o">-</span><span class="nv">words</span><span class="na">.</span><span class="nv">dws</span>
+</code></pre></div>
+</li>
+<li>
+<p>Set your workspace ID to <strong>list-solutions-[your name].dws</strong> and save the workspace on your system with <code>)SAVE</code>.</p>
+</li>
 <li>Save your workspace often!</li>
-<li>Send your workspace to the email address you were given.</li>
+<li>Define functions in this workspace according to the specifications below.</li>
+<li>
+<p>When you are ready to submit, erase the <code>words</code> variable so that your workspace is smaller:  </p>
+<div class="copy highlight"><pre><span></span><code><span class="sr">]</span><span class="nv">expunge</span><span class="w"> </span><span class="nv">words</span>
+</code></pre></div>
+<p>You can get the words variable at any time from the original workspace:  </p>
+<div class="copy highlight"><pre><span></span><code><span class="sr">]</span><span class="nv">get</span><span class="w"> </span><span class="o">-</span><span class="nv">u</span><span class="w"> </span><span class="o">-</span><span class="nv">o</span><span class="o">=</span><span class="nv">words</span><span class="w"> </span><span class="nv">https</span><span class="bp">:</span><span class="na">//</span><span class="nv">github</span><span class="na">.</span><span class="nv">com</span><span class="na">/</span><span class="nv">dyalog</span><span class="o">-</span><span class="nv">training</span><span class="na">/</span><span class="m">2025</span><span class="o">-</span><span class="nv">ListsWorkshop</span><span class="na">/</span><span class="nv">raw</span><span class="na">/</span><span class="nv">refs</span><span class="na">/</span><span class="nv">heads</span><span class="na">/</span><span class="nv">main</span><span class="na">/</span><span class="nv">lists</span><span class="o">-</span><span class="nv">of</span><span class="o">-</span><span class="nv">words</span><span class="na">.</span><span class="nv">dws</span>
+</code></pre></div>
+</li>
+<li>
+<p>Send your workspace to the email address you were given.</p>
+</li>
 </ol>
 <h2 id="arguments-and-results">Arguments and Results</h2>
 <p>Unless specified otherwise, all functions take a nested list of character vectors as right argument. All words in the right argument consist solely of characters in <code>⎕A</code>.</p>
-<p>All <code>Count*</code> function should return a simple scalar numeric result.</p>
+<p>All <code>Count*</code> functions should return a simple scalar numeric result.</p>
+<h2 id="running-tests">Running Tests</h2>
+<p>The <code>Tests.Run</code> function takes a namespace of solution functions as its right argument and runs the test suite using those solutions. Your solution functions must be correctly named. You may define your solutions in <code>#</code> and run the tests with <code>Tests.Run #</code>, or using another namespace that you create.</p>
+<p>The optional left argument to <code>Tests.Run</code> is a scalar Boolean flag that indicates whether or not to pause execution in the case that a test errors or fails.</p>
 <h2 id="counta">CountA</h2>
 <p>Define a function <code>CountA</code> that returns the count of words that contain the letter "A".</p>
+<div class="highlight"><pre><span></span><code>      CountA &#39;A&#39; &#39;WORD&#39; &#39;AT&#39; &#39;A&#39; &#39;TIME&#39;
+3
+</code></pre></div>
 <h2 id="countgors">CountGORS</h2>
 <p>Define a function <code>CountGORS</code> that returns the count of words that contain the letter "G" or the letter "S".</p>
+<div class="highlight"><pre><span></span><code>      CountGORS ,¨&#39;G&#39; &#39;S&#39; &#39;GS&#39;
+3
+</code></pre></div>
 <h2 id="countgands">CountGANDS</h2>
 <p>Define a function <code>CountGANDS</code> that returns the count of words that contain the letter "G" and the letter "S".</p>
+<div class="highlight"><pre><span></span><code>      CountGANDS ,¨&#39;G&#39; &#39;S&#39; &#39;GS&#39;
+1
+</code></pre></div>
 <h2 id="countell">CountELL</h2>
 <p>Define a function <code>CountELL</code> that returns the count of words that contain the substring "ELL".</p>
+<div class="highlight"><pre><span></span><code>      CountELL &#39;ELLA&#39; &#39;BALL&#39; &#39;BEND&#39; &#39;BELL&#39; &#39;BELLY&#39;
+3
+</code></pre></div>
 <h2 id="countcon">CountCON</h2>
 <p>Define a function <code>CountCON</code> that returns the count of words that begin with "CON".</p>
+<div class="highlight"><pre><span></span><code>      CountCON &#39;CONNOR&#39; &#39;BACON&#39; &#39;ANACONDA&#39; &#39;CONVERT&#39;
+2
+</code></pre></div>
 <h2 id="countity">CountITY</h2>
 <p>Define a function <code>CountITY</code> that returns the count of words that end with "ITY".</p>
-<h2 id="substring">Substring</h2>
-<p>Define a function <code>Substring</code> that returns words from the right argument list that are substrings of the simple character vector left argument. For example, substrings of "CONSIDERATION" include "SIDE" and "RATIO".</p>
-<h2 id="sandwich">Sandwich</h2>
-<p>Define a function <code>Sandwich</code> that returns the count of words in its right argument that begin and end with the same character.</p>
+<div class="highlight"><pre><span></span><code>      CountITY &#39;CITY&#39; &#39;PITYING&#39; &#39;TEST&#39; &#39;ABILITY&#39; &#39;DEITY&#39;
+3
+</code></pre></div>
+<h2 id="countsandwich">CountSandwich</h2>
+<p>Define a function <code>CountSandwich</code> that returns the count of words in its right argument that begin and end with the same character.</p>
+<div class="highlight"><pre><span></span><code>      CountSandwich &#39;FIFE&#39; &#39;PEEP&#39; &#39;TOOT&#39;
+2
+</code></pre></div>
+<h2 id="substrings">Substrings</h2>
+<p>Define a function <code>Substrings</code> that returns words from the right argument list that are substrings of the simple character vector left argument. For example, substrings of "CONSIDERATION" include "SIDE" and "RATIO".</p>
+<div class="highlight"><pre><span></span><code>      ]box on
+Was OFF
+      &#39;CONSIDERATION&#39; Substrings &#39;SIDE&#39; &#39;RAT&#39; &#39;RATIO&#39; &#39;HAT&#39; &#39;PATIO&#39;
+┌────┬───┬─────┐
+│SIDE│RAT│RATIO│
+└────┴───┴─────┘
+</code></pre></div>
 <h2 id="longestwords">LongestWords</h2>
 <p>Define a function <code>LongestWords</code> that returns a nested vector of character vectors that are the longest words in its right argument list.</p>
-<pre><code>      ]box on
-Was OFF
-      LongestWords 'JUST' 'FOR' 'THESE' 'FIVE' 'WORDS'
+<div class="highlight"><pre><span></span><code>      LongestWords &#39;JUST&#39; &#39;FOR&#39; &#39;THESE&#39; &#39;FIVE&#39; &#39;WORDS&#39;
 ┌─────┬─────┐
 │THESE│WORDS│
 └─────┴─────┘
-</code></pre>
+</code></pre></div>
 <h2 id="lengthdistribution">LengthDistribution</h2>
 <p>Define a function <code>LengthDistribution</code> that returns a two-column matrix. The first column contains integers between 1 and the length of the longest word in the right argument. The second column is the count of words in the right argument that have that length.</p>
-<pre><code>      LengthDistribution 'JUST' 'FOR' 'THESE' 'FIVE' 'WORDS'
+<div class="highlight"><pre><span></span><code>      LengthDistribution &#39;JUST&#39; &#39;FOR&#39; &#39;THESE&#39; &#39;FIVE&#39; &#39;WORDS&#39;
 1 0
 2 0
 3 1
 4 2
 5 2
-</code></pre>
+</code></pre></div>
 <h2 id="lengthbyletter">LengthByLetter</h2>
 <p>Define a function <code>LengthByLetter</code> that returns a two-column matrix. The first column contains the letters A to Z. The second column contains the average length of words in the right argument list that begin with that letter.</p>
-<pre><code>      LengthByLetter 'JUST' 'FOR' 'THESE' 'FIVE' 'WORDS'
+<div class="highlight"><pre><span></span><code>      LengthByLetter &#39;JUST&#39; &#39;FOR&#39; &#39;THESE&#39; &#39;FIVE&#39; &#39;WORDS&#39;
 A 0
 B 0
 C 0
@@ -745,55 +810,58 @@ W 5
 X 0
 Y 0
 Z 0
-</code></pre>
+</code></pre></div>
 <h2 id="countpalindromes">CountPalindromes</h2>
 <p>Define a function <code>CountPalindromes</code> that counts the number of words that are identical when reversed.</p>
-<pre><code>      CountPalindromes 'reed' 'deed' 'dog' 'racecar'
+<div class="highlight"><pre><span></span><code>      CountPalindromes &#39;REED&#39; &#39;DEED&#39; &#39;DOG&#39; &#39;RACECAR&#39;
 2
-</code></pre>
+</code></pre></div>
 <h2 id="countalphabetical">CountAlphabetical</h2>
 <p>Define a function <code>CountAlphabetical</code> that counts how many words have their letters in alphabetical order.</p>
-<pre><code>      CountAlphabetical 'JUST' 'FOR' 'THESE' 'ABC' 'DEF' 'WORDS'
+<div class="highlight"><pre><span></span><code>      CountAlphabetical &#39;FEEL&#39; &#39;ACER&#39; &#39;SPOON&#39; &#39;LOOPS&#39; &#39;CENT&#39;
 3
-</code></pre>
+</code></pre></div>
 <h2 id="countrepeating">CountRepeating</h2>
 <p>Define a function <code>CountRepeating</code> that counts how many words have consecutive repeated letters. For example, "deep" and "small" do but "special" does not.</p>
-<pre><code>      CountRepeating 'DEEP' 'SMALL' 'SPECIAL'
+<div class="highlight"><pre><span></span><code>      CountRepeating &#39;DEEP&#39; &#39;SMALL&#39; &#39;SPECIAL&#39; &#39;BOB&#39;
 2
-</code></pre>
+</code></pre></div>
 <h2 id="countalternating">CountAlternating</h2>
-<p>Define a function <code>CountAlternating</code> that counts how many words have alternating vowels and consonants. For example, "solid" has alternating vowels and consonants, but "read" has two consecutive vowels and "angle" has three consecutive consonants.</p>
-<pre><code>      CountAlternating 'SOLID' 'READ' 'ANGLE'
+<p>Define a function <code>CountAlternating</code> that counts how many words have alternating vowels and consonants. For example, "solid" has alternating vowels and consonants, but "read" has two consecutive vowels and "angle" has three consecutive consonants. For this workshop, a vowel is defined as one of the characters "AEIOU".</p>
+<div class="highlight"><pre><span></span><code>      CountAlternating &#39;SOLID&#39; &#39;READ&#39; &#39;ANGLE&#39;
 1
-</code></pre>
+</code></pre></div>
 <h2 id="reverse">Reverse</h2>
 <p>Define a function <code>Reverse</code> that reverses each word.</p>
-<pre><code>      Reverse 'SOLID' 'READ' 'ANGLE'
+<div class="highlight"><pre><span></span><code>      Reverse &#39;SOLID&#39; &#39;READ&#39; &#39;ANGLE&#39;
 ┌─────┬────┬─────┐
 │DILOS│DAER│ELGNA│
 └─────┴────┴─────┘
-</code></pre>
+</code></pre></div>
 <h2 id="countc_t">CountC_T</h2>
 <p>Define a function <code>CountC_T</code> that counts the number of words that contain the pattern <code>C_T</code> where <code>_</code> is any single character.</p>
-<pre><code>      CountC_T 'CALLING' 'CUTTING' 'WALK' 'CAT' 'COT'
+<div class="highlight"><pre><span></span><code>      CountC_T &#39;CALLING&#39; &#39;CUTTING&#39; &#39;WALK&#39; &#39;CAT&#39; &#39;COT&#39;
 3
-</code></pre>
+</code></pre></div>
 <h2 id="countn_q">CountN_Q</h2>
 <p>Define a function <code>CountN_Q</code> that counts the number of words that contain the pattern <code>N_Q</code> where <code>_</code> may be zero or more characters.</p>
+<div class="highlight"><pre><span></span><code>      CountN_Q &#39;ANTIQUE&#39; &#39;QUININE&#39;  &#39;INEQUALITY&#39; &#39;BANQUET&#39; &#39;FISH&#39;
+3
+</code></pre></div>
 <h2 id="removevowels">RemoveVowels</h2>
 <p>Define a function <code>RemoveVowels</code> that returns the same words as its argument but with all vowels removed.</p>
-<pre><code>      RemoveVowels 'ALPHABETTY' 'SPAGHETTI'
+<div class="highlight"><pre><span></span><code>      RemoveVowels &#39;ALPHABETTY&#39; &#39;SPAGHETTI&#39;
 ┌───────┬──────┐
 │LPHBTTY│SPGHTT│
 └───────┴──────┘
-</code></pre>
+</code></pre></div>
 <h2 id="removeinteriorvowels">RemoveInteriorVowels</h2>
 <p>Define a function <code>RemoveVowels</code> that returns the same words as its argument but with all interior vowels removed. An interior letter is a letter between, but not including, the first and last letter.</p>
-<pre><code>      RemoveInteriorVowels 'ALPHABETTY' 'SPAGHETTI'
+<div class="highlight"><pre><span></span><code>      RemoveInteriorVowels &#39;ALPHABETTY&#39; &#39;SPAGHETTI&#39;
 ┌────────┬───────┐
 │ALPHBTTY│SPGHTTI│
 └────────┴───────┘
-</code></pre>
+</code></pre></div>
 
 
 
