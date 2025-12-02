@@ -7,7 +7,7 @@ You should have already attempted the problems using the nested vector format. Y
 1. Download the updated tests
 
     ```{ .apl .copy }
-    ]get -u -o=Tests https://github.com/dyalog-training/2025-ListsWorkshop/raw/refs/heads/main/lists-of-words.dws
+    ]get -u -o=Tests https://github.com/dyalog-training/2025-ListsWorkshop/blob/main/lists-of-words.dws
     ```
 
 1. Create namespaces `MAT` and `DEL`
