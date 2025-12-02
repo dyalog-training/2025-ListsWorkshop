@@ -381,12 +381,21 @@
 </li>
 <li>
 <p>Create namespaces <code>MAT</code> and <code>DEL</code></p>
+<div class="copy highlight"><pre><span></span><code><span class="s1">&#39;MAT&#39;</span><span class="nf">⎕NS</span><span class="s1">&#39;&#39;</span>
+<span class="s1">&#39;DEL&#39;</span><span class="nf">⎕NS</span><span class="s1">&#39;&#39;</span>
+</code></pre></div>
 </li>
 <li>
 <p>The updated tests contain the <code>words</code> list in delimited simple character vector format. For testing, put the words list in the appropriate format into the namespaces containing your solutions for that format.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#.words←&#39;;&#39;(≠⊆⊢)Tests.Delimited.words   ⍝ If nested solutions are in #</span>
+<div class="copy highlight"><pre><span></span><code><span class="c1">#.words←&#39;;&#39;(≠⊆⊢)Tests.Delimited.words   ⍝ If nested solutions are in #</span>
 <span class="nv">DEL</span><span class="na">.</span><span class="nv">words</span><span class="kd">←</span><span class="nv">Tests</span><span class="na">.</span><span class="nv">Delimited</span><span class="na">.</span><span class="nv">words</span>
 <span class="nv">MAT</span><span class="na">.</span><span class="nv">words</span><span class="kd">←</span><span class="o">↑</span><span class="s1">&#39;;&#39;</span><span class="p">(</span><span class="o">≠⊆⊢</span><span class="p">)</span><span class="nv">DEL</span><span class="na">.</span><span class="nv">words</span>
+</code></pre></div>
+</li>
+<li>
+<p>You can now run the test suites for the two new list formats.</p>
+<div class="copy highlight"><pre><span></span><code><span class="nv">Tests</span><span class="na">.</span><span class="nv">Run</span><span class="w"> </span><span class="nv">MAT</span>
+<span class="nv">Tests</span><span class="na">.</span><span class="nv">Run</span><span class="w"> </span><span class="nv">DEL</span>
 </code></pre></div>
 </li>
 </ol>
