@@ -5,51 +5,49 @@
 
     CountA←{+/'A'∊¨⍵}
 
-    CountAlphabetical←{+/{⍵≡⍵[⍋⍵]}¨⍵}   ⍝ Can trigger idiom with {+/⍵≡{⍵[⍋⍵]}}
+    CountGORS←{+/∨/¨⍵∊¨⊂'GS'}
+
+    CountGANDS←+/{∧/∨/'GS'∘.=⍵}¨   ⍝ +/{0∊⍴'GS'~⍵}¨
+
+    CountELL←{+/'ELL'∘(∨/⍷)¨⍵}
+
+    CountCON←{+/'CON'∘(⊃⍷)¨⍵}      ⍝ +/{'CON'≡3↑⍵}¨
+
+    CountITY←+/{3⊃⌽'ITY'⍷⍵}¨
+
+    CountSandwich←+/(⊣/≡⊢/)¨       ⍝ +/(⊃≡⊃∘⌽)¨
+
+    Substrings←{⍵⌿⍨∨/¨⍵⍷¨⊂⍺}
+
+    LongestWords←{⍵⌿⍨(⊢=⌈/)≢¨⍵}
+
+    LengthDistribution←{,∘(¯1+≢)⌸(⍳⌈/)⍛,≢¨⍵}
+
+    LengthByLetter←{(⎕A,⊃¨⍵),∘(+⌿÷1⌈¯1+≢)⌸(0⍨¨⎕A),≢¨⍵}
+
+    CountPalindromes←{+/(⌽≡⊢)¨⍵}   ⍝ +/⌽⍛≡¨ in v20.0+
+
+    CountAlphabetical←{+/{⍵≡⍵[⍋⍵]}¨⍵}
+
+    CountRepeating←{+/∨/¨2=/¨⍵}
 
       CountAlternating←{
           vowel←⍵∊¨⊂'AEIOU'
           +/~∨/¨2=/¨vowel
       }
 
-    CountCON←{+/'CON'∘(⊃⍷)¨⍵}
+    Reverse←⌽¨
 
     CountC_T←+/{∨/1 3 2⍷'CT'⍳⍵}¨   ⍝ +/'.*C.T.*'⎕S{1}
 
-    CountELL←{+/'ELL'∘(∨/⍷)¨⍵}
+    CountN_Q←+/{∨/'NQ'⍷⍵∩'NQ'}¨    ⍝ +/'NQ'∘(∨/⊣⍷∩⍨)¨
 
-    CountGANDS←+/{∧/∨/'GS'∘.=⍵}¨   ⍝ +/{0∊⍴'GS'~⍵}¨
-
-    CountGORS←{+/∨/¨⍵∊¨⊂'GS'}
-
-    CountITY←{+/3⊃∘⌽¨'ITY'∘⍷¨⍵}
-
-    CountN_Q←{+/{∨/1 ¯1⍷0~⍨-⌿'NQ'∘.=⍵}¨⍵}
-
-    CountPalindromes←{+/⌽⍛≡¨⍵}
-
-    CountRepeating←{+/∨/¨2=/¨⍵}
-
-    CountSandwich←{+/(⊃≡⊃∘⌽)¨⍵}
-
-    LengthByLetter←{(⎕A,⊃¨⍵),∘(+⌿÷1⌈¯1+≢)⌸(0⍨¨⎕A),≢¨⍵}
-
-    LengthDistribution←{,∘(¯1+≢)⌸(⍳⌈/)⍛,≢¨⍵}
-
-    LetterDistribution←{(⎕A,⊃¨⍵){⍺,(+⌿÷≢)⍵}⌸(0⍨¨⎕A),≢¨⍵}
-
-    LongestWords←{⍵⌿⍨(⊢=⌈/)≢¨⍵}
+    RemoveVowels←{⍵~¨⊂'AEIOU'}
 
       RemoveInteriorVowels←{
           interior←{3∧/' '≠' ',' ',⍨⍵}¨⍵
           vowel←⍵∊¨⊂'AEIOU'
           ⍵⌿¨⍨interior⍲vowel
       }
-
-    RemoveVowels←{⍵~¨⊂'AEIOU'}
-
-
-
-    Substrings←{⍵⌿⍨∨/¨⍵⍷¨⊂⍺}
 
 :EndNamespace
