@@ -9,7 +9,7 @@ Try [the exercises](./exercises.md), using arguments that are nested vectors of 
 
 Get the test workspace contents:
 
-```
+```{ .apl .copy }
 ]get -u https://github.com/dyalog-training/2025-ListsWorkshop/raw/refs/heads/main/lists-of-words.dws
 ```
 

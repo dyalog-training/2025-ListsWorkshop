@@ -1,16 +1,35 @@
 # Day 1
 
 ## Setup
-You should have already attempted the problems using the nested vector format. You can see example solutions to help you.
+You should have already attempted the problems using the nested vector format. You can see [example solutions](https://github.com/dyalog-training/2025-ListsWorkshop/blob/main/solutions/NESTED.dyalog) to help you.
 
 1. Start Dyalog
 1. Download the updated tests
-1. Create namespaces `MAT` and `DEL`
-1. Define character matrix and delimited character vector foramts
 
-    ```apl
-    MAT.words←↑words
-    DEL.words←∊,∘';'¨words
+    ```{ .apl .copy }
+    ]get -u -o=Tests https://github.com/dyalog-training/2025-ListsWorkshop/raw/refs/heads/main/lists-of-words.dws
+    ```
+
+1. Create namespaces `MAT` and `DEL`
+
+    ```{ .apl .copy }
+    'MAT'⎕NS''
+    'DEL'⎕NS''
+    ```
+
+1. The updated tests contain the `words` list in delimited simple character vector format. For testing, put the words list in the appropriate format into the namespaces containing your solutions for that format.
+
+    ```{ .apl .copy }
+    #.words←';'(≠⊆⊢)Tests.Delimited.words   ⍝ If nested solutions are in #
+    DEL.words←Tests.Delimited.words
+    MAT.words←↑';'(≠⊆⊢)DEL.words
+    ```
+
+1. You can now run the test suites for the two new list formats.
+
+    ```{ .apl .copy }
+    Tests.Run MAT
+    Tests.Run DEL
     ```
 
 ## Part 1
