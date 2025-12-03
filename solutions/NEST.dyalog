@@ -1,4 +1,4 @@
-﻿:Namespace NESTED
+﻿:Namespace NEST
     (⎕IO ⎕ML ⎕WX)←1 1 3
 
 ⍝ A collection of sample solutions.
