@@ -257,27 +257,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-1" class="md-nav__link">
+  <a href="#exercises" class="md-nav__link">
     <span class="md-ellipsis">
-      Part 1
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Part 2
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Part 3
+      Exercises
     </span>
   </a>
   
@@ -327,27 +309,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-1" class="md-nav__link">
+  <a href="#exercises" class="md-nav__link">
     <span class="md-ellipsis">
-      Part 1
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Part 2
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Part 3
+      Exercises
     </span>
   </a>
   
@@ -371,35 +335,40 @@
 
 <h1 id="day-1">Day 1</h1>
 <h2 id="setup">Setup</h2>
-<p>You should have already attempted the problems using the nested vector format. You can see <a href="https://github.com/dyalog-training/2025-ListsWorkshop/blob/main/solutions/NESTED.dyalog">example solutions</a> to help you.</p>
+<p>You should have already attempted the problems using the nested vector format. Now we will try to solve the problems again, taking advantage of the flat array formats to create faster solutions.</p>
 <ol>
-<li>Start Dyalog</li>
 <li>
-<p>Download the updated tests</p>
-<div class="copy highlight"><pre><span></span><code><span class="sr">]</span><span class="nv">get</span><span class="w"> </span><span class="o">-</span><span class="nv">u</span><span class="w"> </span><span class="o">-</span><span class="nv">o</span><span class="o">=</span><span class="nv">Tests</span><span class="w"> </span><span class="nv">https</span><span class="bp">:</span><span class="na">//</span><span class="nv">github</span><span class="na">.</span><span class="nv">com</span><span class="na">/</span><span class="nv">dyalog</span><span class="o">-</span><span class="nv">training</span><span class="na">/</span><span class="m">2025</span><span class="o">-</span><span class="nv">ListsWorkshop</span><span class="na">/</span><span class="nv">blob</span><span class="na">/</span><span class="nv">main</span><span class="na">/</span><span class="nv">lists</span><span class="o">-</span><span class="nv">of</span><span class="o">-</span><span class="nv">words</span><span class="na">.</span><span class="nv">dws</span>
+<p>Download the updated tests workspace</p>
+<div class="copy highlight"><pre><span></span><code><span class="sr">]</span><span class="nv">get</span><span class="w"> </span><span class="o">-</span><span class="nv">u</span><span class="w"> </span><span class="nv">https</span><span class="bp">:</span><span class="na">//</span><span class="nv">github</span><span class="na">.</span><span class="nv">com</span><span class="na">/</span><span class="nv">dyalog</span><span class="o">-</span><span class="nv">training</span><span class="na">/</span><span class="m">2025</span><span class="o">-</span><span class="nv">ListsWorkshop</span><span class="na">/</span><span class="nv">blob</span><span class="na">/</span><span class="nv">main</span><span class="na">/</span><span class="nv">lists</span><span class="o">-</span><span class="nv">of</span><span class="o">-</span><span class="nv">words</span><span class="na">.</span><span class="nv">dws</span>
+</code></pre></div>
+<p>It contains 4 namespaces:</p>
+<div class="highlight"><pre><span></span><code>DEL MAT NEST Tests
+</code></pre></div>
+<p><code>NEST</code> includes <a href="https://github.com/dyalog-training/2025-ListsWorkshop/blob/main/solutions/NEST.dyalog">example solutions</a> using the nested vector format that you can use as a starting point.</p>
+<p><code>MAT</code> contains the character matrix format of the words list:</p>
+<div class="highlight"><pre><span></span><code>      ⍴MAT.words
+43189 20
+</code></pre></div>
+<p><code>DEL</code> contains the delimited character vector format of the words list:</p>
+<div class="highlight"><pre><span></span><code>      ⍴DEL.words
+385552
 </code></pre></div>
 </li>
 <li>
-<p>Create namespaces <code>MAT</code> and <code>DEL</code></p>
-<div class="copy highlight"><pre><span></span><code><span class="s1">&#39;MAT&#39;</span><span class="nf">⎕NS</span><span class="s1">&#39;&#39;</span>
-<span class="s1">&#39;DEL&#39;</span><span class="nf">⎕NS</span><span class="s1">&#39;&#39;</span>
+<p>For the exercises, define new solution functions in the workspaces <code>MAT</code> and <code>DEL</code>:</p>
+<div class="copy highlight"><pre><span></span><code><span class="nv">MAT</span><span class="na">.</span><span class="nv">CountA</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="w"> </span><span class="nv">your</span><span class="w"> </span><span class="nv">solution</span><span class="w"> </span><span class="nv">here</span><span class="w"> </span><span class="kt">}</span>
 </code></pre></div>
-</li>
-<li>
-<p>The updated tests contain the <code>words</code> list in delimited simple character vector format. For testing, put the words list in the appropriate format into the namespaces containing your solutions for that format.</p>
-<div class="copy highlight"><pre><span></span><code><span class="c1">#.words←&#39;;&#39;(≠⊆⊢)Tests.Delimited.words   ⍝ If nested solutions are in #</span>
-<span class="nv">DEL</span><span class="na">.</span><span class="nv">words</span><span class="kd">←</span><span class="nv">Tests</span><span class="na">.</span><span class="nv">Delimited</span><span class="na">.</span><span class="nv">words</span>
-<span class="nv">MAT</span><span class="na">.</span><span class="nv">words</span><span class="kd">←</span><span class="o">↑</span><span class="s1">&#39;;&#39;</span><span class="p">(</span><span class="o">≠⊆⊢</span><span class="p">)</span><span class="nv">DEL</span><span class="na">.</span><span class="nv">words</span>
-</code></pre></div>
-</li>
-<li>
-<p>You can now run the test suites for the two new list formats.</p>
-<div class="copy highlight"><pre><span></span><code><span class="nv">Tests</span><span class="na">.</span><span class="nv">Run</span><span class="w"> </span><span class="nv">MAT</span>
-<span class="nv">Tests</span><span class="na">.</span><span class="nv">Run</span><span class="w"> </span><span class="nv">DEL</span>
+<p>Then you can run the test suite to check your answers:</p>
+<div class="highlight"><pre><span></span><code>      Tests.Run MAT
+**Error running test: Test_01_CountA
+**Solution not found: CountGORS
+**Solution not found: CountGANDS
+···
+**Solution not found: RemoveInteriorVowels
 </code></pre></div>
 </li>
 </ol>
-<h2 id="part-1">Part 1</h2>
+<h2 id="exercises">Exercises</h2>
 <p>Define functions to solve the problems using the new formats. Try to leverage properties of each format to derive the fastest solutions possible.</p>
 <ol>
 <li><a href="../exercises/#counta"><code>CountA</code></a></li>
@@ -407,21 +376,6 @@
 <li><a href="../exercises/#countgands"><code>CountGANDS</code></a></li>
 <li><a href="../exercises/#countell"><code>CountELL</code></a></li>
 <li><a href="../exercises/#countcon"><code>CountCON</code></a></li>
-</ol>
-<h2 id="part-2">Part 2</h2>
-<p>Define functions to solve the following problems using the new formats:</p>
-<ol>
-<li><a href="../exercises/#countity"><code>CountITY</code></a></li>
-<li><a href="../exercises/#countsandwich"><code>CountSandwich</code></a></li>
-</ol>
-<h2 id="part-3">Part 3</h2>
-<p>Define functions to solve the following problems using the new formats:</p>
-<ol>
-<li><a href="../exercises/#countc_t"><code>CountC_T</code></a></li>
-<li><a href="../exercises/#countn_q"><code>CountN_Q</code></a></li>
-<li><a href="../exercises/#countalphabetical"><code>CountAlphabetical</code></a></li>
-<li><a href="../exercises/#countalternating"><code>CountAlternating</code></a></li>
-<li><a href="../exercises/#countrepeating"><code>CountRepeating</code></a></li>
 </ol>
 
 
