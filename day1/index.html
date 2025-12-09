@@ -382,7 +382,13 @@
 <p>For the exercises, define new solution functions in the workspaces <code>MAT</code> and <code>DEL</code>:</p>
 <div class="copy highlight"><pre><span></span><code><span class="nv">MAT</span><span class="na">.</span><span class="nv">CountA</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="w"> </span><span class="nv">your</span><span class="w"> </span><span class="nv">solution</span><span class="w"> </span><span class="nv">here</span><span class="w"> </span><span class="kt">}</span>
 </code></pre></div>
-<p>Then you can run the test suite to check your answers:</p>
+<p>While developing, you can check your answer against a nested solution:</p>
+<div class="highlight"><pre><span></span><code>      MAT.(CountA words)
+21313
+      NEST.(CountA words)
+21313
+</code></pre></div>
+<p>You can also run the test suite to check your answers:</p>
 <div class="highlight"><pre><span></span><code>      Tests.Run MAT
 **Error running test: Test_01_CountA
 **Solution not found: CountGORS
