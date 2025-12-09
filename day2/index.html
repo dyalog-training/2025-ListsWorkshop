@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../exercises/">
+        <link rel="prev" href="../day1/">
       
-      
-        <link rel="next" href="../day2/">
       
       
       <link rel="icon" href="../documentation-assets/images/favicon-32.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Day 1 - Lists of Text Workshop</title>
+        <title>Day 2 - Lists of Text Workshop</title>
       
     
     
@@ -66,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#day-1" class="md-skip">
+        <a href="#day-2" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Day 1
+              Day 2
             
           </span>
         </div>
@@ -197,6 +195,28 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../day1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Day 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -214,7 +234,7 @@
   
   
   <span class="md-ellipsis">
-    Day 1
+    Day 2
     
   </span>
   
@@ -227,7 +247,7 @@
   
   
   <span class="md-ellipsis">
-    Day 1
+    Day 2
     
   </span>
   
@@ -271,28 +291,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../day2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Day 2
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -357,49 +355,17 @@
 
 
 
-<h1 id="day-1">Day 1</h1>
+<h1 id="day-2">Day 2</h1>
 <h2 id="setup">Setup</h2>
-<p>You should have already attempted the problems using the nested vector format. Now we will try to solve the problems again, taking advantage of the flat array formats to create faster solutions.</p>
-<ol>
-<li>
-<p>Download the updated tests workspace</p>
-<div class="copy highlight"><pre><span></span><code><span class="sr">]</span><span class="nv">get</span><span class="w"> </span><span class="o">-</span><span class="nv">u</span><span class="w"> </span><span class="nv">https</span><span class="bp">:</span><span class="na">//</span><span class="nv">github</span><span class="na">.</span><span class="nv">com</span><span class="na">/</span><span class="nv">dyalog</span><span class="o">-</span><span class="nv">training</span><span class="na">/</span><span class="m">2025</span><span class="o">-</span><span class="nv">ListsWorkshop</span><span class="na">/</span><span class="nv">blob</span><span class="na">/</span><span class="nv">main</span><span class="na">/</span><span class="nv">lists</span><span class="o">-</span><span class="nv">of</span><span class="o">-</span><span class="nv">words</span><span class="na">.</span><span class="nv">dws</span>
-</code></pre></div>
-<p>It contains 4 namespaces:</p>
-<div class="highlight"><pre><span></span><code>DEL MAT NEST Tests
-</code></pre></div>
-<p><code>NEST</code> includes <a href="https://github.com/dyalog-training/2025-ListsWorkshop/blob/main/solutions/NEST.dyalog">example solutions</a> using the nested vector format that you can use as a starting point.</p>
-<p><code>MAT</code> contains the character matrix format of the words list:</p>
-<div class="highlight"><pre><span></span><code>      ⍴MAT.words
-43189 20
-</code></pre></div>
-<p><code>DEL</code> contains the delimited character vector format of the words list:</p>
-<div class="highlight"><pre><span></span><code>      ⍴DEL.words
-385552
-</code></pre></div>
-</li>
-<li>
-<p>For the exercises, define new solution functions in the workspaces <code>MAT</code> and <code>DEL</code>:</p>
-<div class="copy highlight"><pre><span></span><code><span class="nv">MAT</span><span class="na">.</span><span class="nv">CountA</span><span class="w"> </span><span class="kd">←</span><span class="w"> </span><span class="kt">{</span><span class="w"> </span><span class="nv">your</span><span class="w"> </span><span class="nv">solution</span><span class="w"> </span><span class="nv">here</span><span class="w"> </span><span class="kt">}</span>
-</code></pre></div>
-<p>Then you can run the test suite to check your answers:</p>
-<div class="highlight"><pre><span></span><code>      Tests.Run MAT
-**Error running test: Test_01_CountA
-**Solution not found: CountGORS
-**Solution not found: CountGANDS
-···
-**Solution not found: RemoveInteriorVowels
-</code></pre></div>
-</li>
-</ol>
+<p>See <a href="../day1/#setup">Day 1</a></p>
 <h2 id="exercises">Exercises</h2>
 <p>Define functions to solve the problems using the new formats. Try to leverage properties of each format to derive the fastest solutions possible.</p>
 <ol>
-<li><a href="../exercises/#counta"><code>CountA</code></a></li>
-<li><a href="../exercises/#countgors"><code>CountGORS</code></a></li>
-<li><a href="../exercises/#countgands"><code>CountGANDS</code></a></li>
-<li><a href="../exercises/#countell"><code>CountELL</code></a></li>
-<li><a href="../exercises/#countcon"><code>CountCON</code></a></li>
+<li><a href="../exercises/#countsandwich"><code>CountSandwich</code></a></li>
+<li><a href="../exercises/#countc_t"><code>CountC_T</code></a></li>
+<li><a href="../exercises/#countn_q"><code>CountN_Q</code></a></li>
+<li><a href="../exercises/#removevowels"><code>RemoveVowels</code></a></li>
+<li><a href="../exercises/#removeinteriorvowels"><code>RemoveInteriorVowels</code></a></li>
 </ol>
 
 
