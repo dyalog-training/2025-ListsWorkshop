@@ -37,7 +37,16 @@ You should have already attempted the problems using the nested vector format. N
     MAT.CountA ← { your solution here }
     ```
 
-    Then you can run the test suite to check your answers:
+    While developing, you can check your answer against a nested solution:
+
+    ```
+          MAT.(CountA words)
+    21313
+          NEST.(CountA words)
+    21313
+    ```
+
+    You can also run the test suite to check your answers:
 
     ```
           Tests.Run MAT
