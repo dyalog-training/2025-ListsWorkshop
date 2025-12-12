@@ -262,46 +262,11 @@ We can use the less-than-scan `<\` to keep the first 1 in each row. We need to a
 └─────┴─────────┴─────────┘
 ```
 
-Somehow we put a 1 in the first column to select the first letter.
+Then we can get the last letters with compress-over-ravel:
 
 ```
-      {⍵,[1.5]1,2↓⍤1<\1,⍨' '=⍵}↑'FIFE' 'ONO' 'PEEP' 'CHEAT' 'TOOT' 'ALPHA'
-F I F E  
-1 0 0 1 0
-
-O N O    
-1 0 1 0 0
-
-P E E P  
-1 0 0 1 0
-
-C H E A T
-1 0 0 0 1
-
-T O O T  
-1 0 0 1 0
-
-A L P H A
-1 0 0 0 1
-```
-
-Then we compress each row, or compress the ravelled matrix and reshape, to gather the first and last letters.
-
-```
-      {⍵⌿⍤1⍨1,2↓⍤1<\1,⍨' '=⍵}↑'FIFE' 'ONO' 'PEEP' 'CHEAT' 'TOOT' 'ALPHA'
-FE
-OO
-PP
-CT
-TT
-AA
-      {(2,⍨≢⍵)⍴⍵⌿⍥,⍨1,2↓⍤1<\1,⍨' '=⍵}↑'FIFE' 'ONO' 'PEEP' 'CHEAT' 'TOOT' 'ALPHA'
-FE
-OO
-PP
-CT
-TT
-AA
+      {⍵⌿⍥,⍨1↓⍤1<\1,⍨' '=⍵}↑'FIFE' 'ONO' 'PEEP' 'CHEAT' 'TOOT' 'ALPHA'
+EOPTTA
 ```
 
 Another approach is to compute the length, and therefore the index of the last letter, of each word. One method is to sum the non-space characters in each row:
@@ -333,9 +298,45 @@ EOPTTA
 Index-of with rank and index with rank have been optimised for these cases.
 
 ```
+      ]runtime -c "{+/(⊣/⍵)=(¯1+⍵⍳⍤1⊢' ')(⌷⍤0 1)⍵}MAT.words" "{+/(⊣/⍵)=⍵⌿⍥,⍨1↓⍤1<\1,⍨' '=⍵}MAT.words"
+                                                                                                     
+  {+/(⊣/⍵)=(¯1+⍵⍳⍤1⊢' ')(⌷⍤0 1)⍵}MAT.words → 3.7E¯4 |    0% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕                         
+  {+/(⊣/⍵)=⍵⌿⍥,⍨1↓⍤1<\1,⍨' '=⍵}MAT.words   → 9.0E¯4 | +144% ⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕ 
 ```
 
-### CountC_T
+### CountC_T and CountN_Q
+Searching for specific text patterns with wildcards and other ambiguities sits squarely in the domain of regular expressions. And indeed, the regular expressions for these two patterns are not complicated.
+
+```
+      'C.T'⎕S'&'⊢'CTA' 'CAT' 'TAC' 'POOF' 'CAAT'
+┌───┐
+│CAT│
+└───┘
+      'N.*Q'⎕S'&'⊢'ANTIQUE' 'QUININE' 'NQN' 'QNQ' 'INEQUALITY' 'BANQUET' 'FISH'
+┌────┬──┬──┬───┬──┐
+│NTIQ│NQ│NQ│NEQ│NQ│
+└────┴──┴──┴───┴──┘
+```
+
+We have to be careful that we do not count a word twice just because it contains the pattern twice:
+
+```
+      'C.T'⎕S '&'⊢'CTA' 'CAT' 'TAC' 'CUTCUTTING' 'POOF' 'CAAT'
+┌───┬───┬───┐
+│CAT│CUT│CUT│
+└───┴───┴───┘
+```
+
+We can ask `⎕S` to stop after one match using the Match Limit (ML) variant option:
+
+```
+      'C.T'⎕S'&'⍠'ML' 1⊢'CTA' 'CAT' 'TAC' 'CUTCUTTING' 'POOF' 'CAAT'
+┌───┬───┐
+│CAT│CUT│
+└───┴───┘
+```
+
+However, regular expressions are very general, and therefore compute relatively slowly compared to APL solutions.
 
 FIXME CountC_T
 FIXME CountN_Q
